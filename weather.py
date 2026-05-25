@@ -3,11 +3,11 @@ is_raining = False
 has_bike = False
 has_car = True
 has_ride_share_app = True
-can_travel = 'You can reach your destination'
-cannot_travel = 'You cannot reach your destination'
+
 
 def can_reach_destination(distance_miles, is_raining, has_bike, has_car, has_ride_share_app):
-
+    can_travel = 'You can reach your destination'
+    cannot_travel = 'You cannot reach your destination'
 
     if not distance_miles:
         return cannot_travel
