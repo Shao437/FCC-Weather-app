@@ -1,26 +1,34 @@
-distance_mi = 1
+distance_miles = 1
 is_raining = False
 has_bike = False
 has_car = True
 has_ride_share_app = True
+can_travel = 'You can reach your destination'
+cannot_travel = 'You cannot reach your destination'
 
-if not distance_mi:
-    print('False')
+def can_reach_destination(distance_miles, is_raining, has_bike, has_car, has_ride_share_app):
 
-elif distance_mi <= 1:
-    if not is_raining:
-        print('True')
+
+    if not distance_miles:
+        return cannot_travel
+        
+
+    elif distance_miles <= 1 and not is_raining:
+        return can_travel
+
+
+    elif distance_miles > 1 and distance_miles <= 6:
+        if has_bike and not is_raining:
+            return can_travel
+        else:
+            return cannot_travel
+
+    elif distance_miles > 6:
+        if has_car or has_ride_share_app:
+            return can_travel
+        else:
+            return cannot_travel
     else:
-        print('False')
+        return cannot_travel
 
-elif distance_mi > 1 and distance_mi <= 6:
-    if has_bike and not is_raining:
-        print('True')
-    else:
-        print('False')
-
-elif distance_mi > 6:
-    if has_car or has_ride_share_app:
-        print('True')
-    else:
-        print('False')
+print(can_reach_destination(distance_miles, is_raining, has_bike, has_car, has_ride_share_app))
